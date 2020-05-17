@@ -1,4 +1,11 @@
 #!/bin/bash
+#                 _        _                   
+#         _______| |____  / |_________         
+#        / |  ____  __/|  |  ________/         
+#       / /| |__ | | | |__| |__| |_| |         
+#      / /_|  __|| |_|  __   __|    _/         
+#     / ___| |___|   / |  | |__| |\ \          
+#    /_/   |______\_/|_/  /_____\| \_\         
 #
 # Aether Kernel Build Script 
 # Coded by CaelestisZ @2020
@@ -52,12 +59,19 @@ BUILD_DTB()
 }
 # Main Menu
 clear
-echo "----------------------------------------------"
-echo "AetherKernel $AE_VERSION Build Script"
-echo "Coded by CaelestisZ"
-echo "----------------------------------------------"
-PS3='Please select your option (1-4): '
-menuvar=("fortuna3g" "fortunave3g" "Exit")
+echo "                 _        _                   "
+echo "         _______| |____  / |_________         "
+echo "        / |  ____  __/|  |  ________/         "
+echo "       / /| |__ | | | |__| |__| |_| |         "
+echo "      / /_|  __|| |_|  __   __|    _/         "
+echo "     / ___| |___|   / |  | |__| |\ \          "
+echo "    /_/   |______\_/|_/  /_____\| \_\         "
+echo "                                              "
+echo "    AetherKernel $AE_VERSION Build Script     "
+echo "             Coded by CaelestisZ              "
+echo "                                              "
+PS3='Please select your option (1-5): '
+menuvar=("fortuna3g" "fortunave3g" "fortunafz" "Exit")
 select menuvar in "${menuvar[@]}"
 do
     case $menuvar in
@@ -92,6 +106,24 @@ do
             echo "Starting fortunave3g kernel build..."
             AE_VARIANT=fortunave3g
             AE_DEFCON=aether_msm8916_fortunave3g_defconfig
+            BUILD_ZIMAGE
+            BUILD_DTB
+            read -n1 -r key
+            break
+            ;;
+        "fortunafz")
+            clear
+            echo "----------------------------------------------"
+            echo "Starting build for fortunafz variants."
+            echo "----------------------------------------------"
+            echo "Cleaning up source..."
+            echo " "
+            CLEAN_SOURCE
+            echo " "
+            echo "----------------------------------------------"
+            echo "Starting fortunafz kernel build..."
+            AE_VARIANT=fortunafz
+            AE_DEFCON=aether_msm8916_fortunafz_defconfig
             BUILD_ZIMAGE
             BUILD_DTB
             read -n1 -r key
