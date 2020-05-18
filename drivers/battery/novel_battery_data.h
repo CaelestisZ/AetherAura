@@ -5,27 +5,27 @@
 static sec_bat_adc_table_data_t temp_table[] = {
   {25950, 900},
   {26173, 850},
-  {26450, 800},
-  {26720, 750},
-  {27103, 700},
-  {27569, 650},
-  {28152, 600},
-  {28623, 550},
-  {29235, 500},
-  {29968, 450},
-  {30817, 400},
-  {31748, 350},
-  {32732, 300},
-  {33807, 250},
-  {34888, 200},
-  {35980, 150},
-  {37043, 100},
-  {37980, 50},
-  {38910, 0},
-  {39680, -50},
-  {40400, -100},
-  {41067, -150},
-  {41479, -200},
+  {26536, 800},
+  {26830, 750},
+  {27192, 700},
+  {27602, 650},
+  {28124, 600},
+  {28707, 550},
+  {29332, 500},
+  {30135, 450},
+  {30974, 400},
+  {31868, 350},
+  {32875, 300},
+  {33918, 250},
+  {34938, 200},
+  {36092, 150},
+  {37137, 100},
+  {38116, 50},
+  {38993, 0},
+  {39823, -50},
+  {40564, -100},
+  {41123, -150},
+  {41591, -200},
 };
 
 
@@ -36,15 +36,15 @@ static sec_bat_adc_table_data_t temp_table[] = {
 #define TEMP_HIGHLIMIT_THRESHOLD_LPM		800
 #define TEMP_HIGHLIMIT_RECOVERY_LPM		750
 
-#define TEMP_HIGH_THRESHOLD_EVENT  580
+#define TEMP_HIGH_THRESHOLD_EVENT  610
 #define TEMP_HIGH_RECOVERY_EVENT   530
 #define TEMP_LOW_THRESHOLD_EVENT   (-50)
 #define TEMP_LOW_RECOVERY_EVENT    0
-#define TEMP_HIGH_THRESHOLD_NORMAL 580
+#define TEMP_HIGH_THRESHOLD_NORMAL 610
 #define TEMP_HIGH_RECOVERY_NORMAL  530
 #define TEMP_LOW_THRESHOLD_NORMAL  (-50)
 #define TEMP_LOW_RECOVERY_NORMAL   0
-#define TEMP_HIGH_THRESHOLD_LPM    580
+#define TEMP_HIGH_THRESHOLD_LPM    610
 #define TEMP_HIGH_RECOVERY_LPM     530
 #define TEMP_LOW_THRESHOLD_LPM     (-50)
 #define TEMP_LOW_RECOVERY_LPM      0

@@ -70,7 +70,7 @@ echo "                                              "
 echo "    AetherKernel $AE_VERSION Build Script     "
 echo "             Coded by CaelestisZ              "
 echo "                                              "
-PS3='Please select your option (1-5): '
+PS3='Please select your option (1-4): '
 menuvar=("fortuna3g" "fortunave3g" "fortunafz" "Exit")
 select menuvar in "${menuvar[@]}"
 do
