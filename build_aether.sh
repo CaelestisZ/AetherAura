@@ -47,6 +47,8 @@ BUILD_ZIMAGE()
 	make -C $AE_DIR -j5 O=output aether_msm8916_defconfig VARIANT_DEFCONFIG=$AE_DEFCON SELINUX_DEFCONFIG=aether_selinux_defconfig
 	make -C $AE_DIR -j5 O=output
 	cp $AE_DIR/output/arch/arm/boot/zImage $AE_DIR/AETHER/zImage
+	mkdir AETHER/modules/pronto
+	cp $AE_DIR/output/drivers/staging/prima/wlan.ko $AE_DIR/AETHER/modules/pronto/pronto_wlan.ko
 	cp $AE_DIR/output/drivers/staging/prima/wlan.ko $AE_DIR/AETHER/modules/wlan.ko
 	echo " "
 }

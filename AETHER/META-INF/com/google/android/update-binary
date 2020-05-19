@@ -44,17 +44,15 @@ ui_print "      / /_|  __|| |_|  __   __|    _/   ";
 ui_print "     / ___| |___|   / |  | |__| |\ \    ";
 ui_print "    /_/   |______\_/|_/  /_____\| \_\   ";
 ui_print "                                        ";
-ui_print "       Aether Kernel Build Script       ";
+ui_print "         AetherAura Build Script        ";
 ui_print "      Brought to you by @CaelestisZ     ";
 ui_print "                                        ";
-ui_print "$(file_getprop /tmp/anykernel/anykernel.sh kernel.string)";
 ui_print "   POWERED BY AnyKernel2 FROM @osm0sis  ";
 ui_print "                                        ";
 mount -o ro /system;
 mount /data;
 
 if [ "$(file_getprop /tmp/anykernel/anykernel.sh do.devicecheck)" == 1 ]; then
-  ui_print "Checking device...";
   for i in 1 2 3 4 5; do
     testname="$(file_getprop /tmp/anykernel/anykernel.sh device.name$i)";
     if [ "$(getprop ro.product.device)" == "$testname" -o "$(getprop ro.build.product)" == "$testname" ]; then
@@ -62,7 +60,6 @@ if [ "$(file_getprop /tmp/anykernel/anykernel.sh do.devicecheck)" == 1 ]; then
       match=1;
     fi;
   done;
-  ui_print " ";
   if [ "$match" != 1 ]; then
     abort "Unsupported device. Aborting...";
   fi;
@@ -77,7 +74,6 @@ if [ "$(file_getprop /tmp/anykernel/anykernel.sh do.initd)" == 1 ]; then
   mount -o remount,ro /system;
 fi;
 
-ui_print "Installing kernel...";
 for i in $($bb --list); do
   $bb ln -s $bb /tmp/anykernel/bin/$i;
 done;
@@ -90,8 +86,6 @@ if [ $? != "0" ]; then
 fi;
 
 if [ "$(file_getprop /tmp/anykernel/anykernel.sh do.modules)" == 1 ]; then
-  ui_print " ";
-  ui_print "Pushing modules...";
   mount -o remount,rw /system;
   cp -rf /tmp/anykernel/modules/* /system/lib/modules/;
   set_perm_recursive 0 0 0755 0644 /system/lib/modules;
@@ -104,6 +98,5 @@ fi;
 
 umount /system;
 umount /data;
-ui_print " ";
 ui_print "Done!";
 
