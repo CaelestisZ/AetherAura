@@ -7,8 +7,8 @@
 #     / ___| |___|   / |  | |__| |\ \          
 #    /_/   |______\_/|_/  /_____\| \_\         
 #
-# Aether Kernel Build Script 
-# Coded by CaelestisZ @2020
+#        Aether Kernel Build Script 
+#         Coded by CaelestisZ @2020
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -46,7 +46,8 @@ BUILD_ZIMAGE()
 	mkdir output
 	make -C $AE_DIR -j5 O=output aether_msm8916_defconfig VARIANT_DEFCONFIG=$AE_DEFCON SELINUX_DEFCONFIG=aether_selinux_defconfig
 	make -C $AE_DIR -j5 O=output
-	cp $AE_DIR/output/arch/arm/boot/zImage $AE_DIR/aether/$AE_VARIANT/zImage
+	cp $AE_DIR/output/arch/arm/boot/zImage $AE_DIR/AETHER/zImage
+	cp $AE_DIR/output/drivers/staging/prima/wlan.ko $AE_DIR/AETHER/modules/wlan.ko
 	echo " "
 }
 BUILD_DTB()
@@ -54,7 +55,24 @@ BUILD_DTB()
 	echo "----------------------------------------------"
 	echo "Building dtb for $AE_VARIANT..."
 	echo " "
-	$AE_DIR/tools/dtbTool -o $AE_DIR/aether/$AE_VARIANT/dtb.img $AE_DIR/output/arch/arm/boot/dts/
+	$AE_DIR/tools/dtbTool -o $AE_DIR/AETHER/dtb.img $AE_DIR/output/arch/arm/boot/dts/
+	echo " "
+}
+PACK_ZIP()
+{
+	echo "----------------------------------------------"
+	echo "Packing flashable zip for $AE_VARIANT..."
+	echo " "
+	cd AETHER
+	mv dtb.img dtb
+	zip -r AetherAura_$AE_VERSION-$AE_VARIANT.zip *
+	rm -r modules/*
+	rm -r zImage
+	rm -r dtb
+	cd ..
+	echo " "
+	echo "Final builds at /AETHER"
+	echo "----------------------------------------------"
 	echo " "
 }
 # Main Menu
@@ -90,6 +108,7 @@ do
             AE_DEFCON=aether_msm8916_fortuna3g_defconfig
             BUILD_ZIMAGE
             BUILD_DTB
+            PACK_ZIP
             read -n1 -r key
             break
             ;;
@@ -108,6 +127,7 @@ do
             AE_DEFCON=aether_msm8916_fortunave3g_defconfig
             BUILD_ZIMAGE
             BUILD_DTB
+            PACK_ZIP
             read -n1 -r key
             break
             ;;
@@ -126,6 +146,7 @@ do
             AE_DEFCON=aether_msm8916_fortunafz_defconfig
             BUILD_ZIMAGE
             BUILD_DTB
+            PACK_ZIP
             read -n1 -r key
             break
             ;;

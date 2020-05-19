@@ -7,7 +7,6 @@
 *.o
 *.so
 /output
-/aether
 
 # Packages #
 ############
