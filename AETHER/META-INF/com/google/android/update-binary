@@ -43,6 +43,9 @@ ui_print "       / /| |__ | | | |__| |__| |_| |   ";
 ui_print "      / /_|  __|| |_|  __   __|    _/   ";
 ui_print "     / ___| |___|   / |  | |__| |\ \    ";
 ui_print "    /_/   |______\_/|_/  /_____\| \_\   ";
+ui_print "                _ _ _ _  _              ";
+ui_print "               |_|| ||_||_|             ";
+ui_print "               | ||_||\ | |             ";
 ui_print "                                        ";
 ui_print "         AetherAura Build Script        ";
 ui_print "      Brought to you by @CaelestisZ     ";
@@ -98,5 +101,5 @@ fi;
 
 umount /system;
 umount /data;
-ui_print "Done!";
+ui_print "           Done!               ";
 

@@ -48,8 +48,17 @@ BUILD_ZIMAGE()
 	make -C $AE_DIR -j5 O=output
 	cp $AE_DIR/output/arch/arm/boot/zImage $AE_DIR/AETHER/zImage
 	mkdir AETHER/modules/pronto
+	cp $AE_DIR/output/arch/arm/oprofile/oprofile.ko $AE_DIR/AETHER/modules/oprofile.ko
+	cp $AE_DIR/output/block/test-iosched.ko $AE_DIR/AETHER/modules/test-iosched.ko
+	cp $AE_DIR/output/crypto/ansi_cprng.ko $AE_DIR/AETHER/modules/ansi_cprng.ko
+	cp $AE_DIR/output/drivers/gator/gator.ko $AE_DIR/AETHER/modules/gator.ko
+	cp $AE_DIR/output/drivers/input/evbug.ko $AE_DIR/AETHER/modules/evbug.ko
+	cp $AE_DIR/output/drivers/mmc/card/mmc_block_test.ko $AE_DIR/AETHER/modules/mmc_block_test.ko
+	cp $AE_DIR/output/drivers/mmc/card/mmc_test.ko $AE_DIR/AETHER/modules/mmc_test.ko
+	cp $AE_DIR/output/drivers/spi/spidev.ko $AE_DIR/AETHER/modules/spidev.ko
 	cp $AE_DIR/output/drivers/staging/prima/wlan.ko $AE_DIR/AETHER/modules/pronto/pronto_wlan.ko
-	cp $AE_DIR/output/drivers/staging/prima/wlan.ko $AE_DIR/AETHER/modules/wlan.ko
+	cp $AE_DIR/output/net/ipv4/tcp_htcp.ko $AE_DIR/AETHER/modules/tcp_htcp.ko
+	cp $AE_DIR/output/net/ipv4/tcp_westwood.ko $AE_DIR/AETHER/modules/tcp_westwood.ko
 	echo " "
 }
 BUILD_DTB()
