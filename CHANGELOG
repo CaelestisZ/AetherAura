@@ -6,5 +6,6 @@ AetherAura CHANGELOG
  > Reduced kernel overheat
  > Powersuspend
  > MSM adreno idler
+ > Added state_notifier
  > And several performance optimizations
  
