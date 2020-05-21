@@ -2089,5 +2089,5 @@ config BARCODE_PAINTER
 config SAMSUNG_PRODUCT_SHIP
         bool "set up for product shipping"
         default n
-
+        
 endif
