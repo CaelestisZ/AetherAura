@@ -1,0 +1,10 @@
+
+AetherAura CHANGELOG
+ > Selected fortuna drivers updated
+ > Reduced CPU average load
+ > Enabled ARCH_POWER
+ > Reduced kernel overheat
+ > Powersuspend
+ > MSM adreno idler
+ > And several performance optimizations
+ 
