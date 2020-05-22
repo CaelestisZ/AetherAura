@@ -101,5 +101,5 @@ fi;
 
 umount /system;
 umount /data;
-ui_print "           Done!               ";
+ui_print "Done!               ";
 

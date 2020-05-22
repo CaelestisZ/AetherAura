@@ -24,7 +24,7 @@
 #
 clear
 # Init Fields
-AE_VERSION=Alpha
+AE_VERSION=Ascent
 AE_DATE=$(date +%Y%m%d)
 AE_TOOLCHAIN=/home/caelestisz/Toolchains/bin/arm-eabi-
 AE_DIR=$(pwd)
@@ -42,7 +42,7 @@ BUILD_ZIMAGE()
 	echo " "
 	export ARCH=arm
 	export CROSS_COMPILE=$AE_TOOLCHAIN
-	export LOCALVERSION=-Aether_Kernel-$AE_VERSION-$AE_VARIANT-$AE_DATE
+	export LOCALVERSION=-Aether_Aura-$AE_VERSION-$AE_VARIANT-$AE_DATE
 	mkdir output
 	make -C $AE_DIR -j5 O=output aether_msm8916_defconfig VARIANT_DEFCONFIG=$AE_DEFCON SELINUX_DEFCONFIG=aether_selinux_defconfig
 	make -C $AE_DIR -j5 O=output
@@ -77,13 +77,14 @@ PACK_ZIP()
 	echo " "
 	cd AETHER
 	mv dtb.img dtb
-	zip -r AetherAura_$AE_VERSION-$AE_VARIANT.zip *
+	zip -r AetherAura_$AE_VERSION-$AE_VARIANT-$AE_DATE.zip *
 	rm -r modules/*
 	rm -r zImage
 	rm -r dtb
 	cd ..
+	mv AETHER/AetherAura_$AE_VERSION-$AE_VARIANT-$AE_DATE.zip final/AetherAura_$AE_VERSION-$AE_VARIANT-$AE_DATE.zip
 	echo " "
-	echo "Final builds at /AETHER"
+	echo "Final builds at /final"
 	echo "----------------------------------------------"
 	echo " "
 }
