@@ -26,6 +26,7 @@
  - G530HXC (flash the fortunave3g release)
  - G530FZ (flash the fortunafz release)
  - G530F (flash the fortuna3g release)
+ - G530BT (flash the fortuna3gdtv release)
  
 ## Contributing
 
