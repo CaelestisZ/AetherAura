@@ -14,7 +14,9 @@
      - Added msm_limiter
      - Implemented custom voltage control
      - Introduced lpClock
+     - Added Doze Helper for battery
      - And several performance optimizations
+     - Optimize KSM
 
 ## Contributing
 
