@@ -1,6 +1,8 @@
 # AetherAura
 > SE 7.1.1 kernel | FortunaX | Base: J510FN
 
+![AetherAura Logo](/info/logo.png)
+
 ## Release History
 
  - Ascent
