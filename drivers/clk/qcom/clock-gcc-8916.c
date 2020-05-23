@@ -342,7 +342,12 @@ static DEFINE_VDD_REGULATORS(vdd_sr2_pll, VDD_SR2_PLL_NUM, 2,
 				vdd_sr2_levels, NULL);
 
 static struct pll_freq_tbl apcs_pll_freq[] = {
-	F_APCS_PLL( 998400000, 52, 0x0, 0x1, 0x0, 0x0, 0x0),
+	F_APCS_PLL( 100000000, 1, 0x0, 0x1, 0x0, 0x0, 0x0),
+	F_APCS_PLL( 200000000, 4, 0x0, 0x1, 0x0, 0x0, 0x0),
+	F_APCS_PLL( 400000000, 6, 0x0, 0x1, 0x0, 0x0, 0x0),
+	F_APCS_PLL( 533330000, 8, 0x0, 0x1, 0x0, 0x0, 0x0),
+	F_APCS_PLL( 800000000, 9, 0x0, 0x1, 0x0, 0x0, 0x0),
+ 	F_APCS_PLL( 998400000, 52, 0x0, 0x1, 0x0, 0x0, 0x0),
 	F_APCS_PLL(1094400000, 57, 0x0, 0x1, 0x0, 0x0, 0x0),
 	F_APCS_PLL(1190400000, 62, 0x0, 0x1, 0x0, 0x0, 0x0),
 	F_APCS_PLL(1248000000, 65, 0x0, 0x1, 0x0, 0x0, 0x0),
@@ -1191,6 +1196,7 @@ static struct clk_freq_tbl ftbl_gcc_sdcc1_apps_clk[] = {
 	F(  25000000,	   gpll0,  16,	  1,	2),
 	F(  50000000,	   gpll0,  16,	  0,	0),
 	F( 100000000,	   gpll0,   8,	  0,	0),
+	F( 160000000,	   gpll0,   5,	  0,	0),
 	F( 177770000,	   gpll0, 4.5,	  0,	0),
 	F_END
 };
@@ -1216,7 +1222,8 @@ static struct clk_freq_tbl ftbl_gcc_sdcc2_apps_clk[] = {
 	F(  25000000,	   gpll0,  16,	  1,	2),
 	F(  50000000,	   gpll0,  16,	  0,	0),
 	F( 100000000,	   gpll0,   8,	  0,	0),
-	F( 177770000,	   gpll0,   4.5,	  0,	0),
+	F( 160000000,	   gpll0,   5,	  0,	0),
+	F( 177770000,	   gpll0, 4.5,	  0,	0),
 	F( 200000000,	   gpll0,   4,	  0,	0),
 	F_END
 };
