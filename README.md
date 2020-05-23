@@ -20,6 +20,13 @@
      - Optimize KSM
      - And several performance optimizations
 
+## Supported devices
+
+ - G530HXX (flash the fortuna3g release)
+ - G530HXC (flash the fortunave3g release)
+ - G530FZ (flash the fortunafz release)
+ - G530F (flash the fortuna3g release)
+ 
 ## Contributing
 
 1. Fork it (<https://github.com/CaelestisZ/AetherAura>)
