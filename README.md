@@ -1,7 +1,8 @@
 # AetherAura
-> SE 7.1.1 kernel | FortunaX | Base: J510FN
 
 ![AetherAura Logo](/info/logo.png)
+
+> SE 7.1.1 kernel | FortunaX | Base: J510FN
 
 ## Release History
 
@@ -16,9 +17,8 @@
      - Added msm_limiter
      - Implemented custom voltage control
      - Introduced lpClock
-     - Added Doze Helper for battery
-     - And several performance optimizations
      - Optimize KSM
+     - And several performance optimizations
 
 ## Contributing
 
