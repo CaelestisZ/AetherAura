@@ -4,6 +4,14 @@
 
 > SE 7.1.1 kernel | FortunaX | Base: J510FN
 
+## Supported devices
+
+ - G530HXX
+ - G530HXC
+ - G530FZ
+ - G530F
+ - G530BT
+ 
 ## Release History
 
  - Ascent
@@ -20,14 +28,6 @@
      - Optimize KSM
      - And several performance optimizations
 
-## Supported devices
-
- - G530HXX (flash the fortuna3g release)
- - G530HXC (flash the fortunave3g release)
- - G530FZ (flash the fortunafz release)
- - G530F (flash the fortuna3g release)
- - G530BT (flash the fortuna3gdtv release)
- 
 ## Contributing
 
 1. Fork it (<https://github.com/CaelestisZ/AetherAura>)
