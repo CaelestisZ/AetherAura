@@ -101,8 +101,8 @@ echo "                                              "
 echo "    AetherKernel $AE_VERSION Build Script     "
 echo "             Coded by CaelestisZ              "
 echo "                                              "
-PS3='Please select your option (1-4): '
-menuvar=("fortuna3g" "fortunave3g" "fortunafz" "Exit")
+PS3='Please select your option (1-5): '
+menuvar=("fortuna3g" "fortuna3gdtv" "fortunave3g" "fortunafz" "Exit")
 select menuvar in "${menuvar[@]}"
 do
     case $menuvar in
@@ -119,6 +119,25 @@ do
             echo "Starting fortuna3g kernel build..."
             AE_VARIANT=fortuna3g
             AE_DEFCON=aether_msm8916_fortuna3g_defconfig
+            BUILD_ZIMAGE
+            BUILD_DTB
+            PACK_ZIP
+            read -n1 -r key
+            break
+            ;;
+        "fortuna3gdtv")
+            clear
+            echo "----------------------------------------------"
+            echo "Starting build for fortuna3gdtv variants."
+            echo "----------------------------------------------"
+            echo "Cleaning up source..."
+            echo " "
+            CLEAN_SOURCE
+            echo " "
+            echo "----------------------------------------------"
+            echo "Starting fortuna3gdtv kernel build..."
+            AE_VARIANT=fortuna3gdtv
+            AE_DEFCON=aether_msm8916_fortuna3gdtv_defconfig
             BUILD_ZIMAGE
             BUILD_DTB
             PACK_ZIP
