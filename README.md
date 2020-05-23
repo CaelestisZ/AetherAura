@@ -11,6 +11,9 @@
      - Powersuspend
      - MSM adreno idler
      - Added state_notifier
+     - Added msm_limiter
+     - Implemented custom voltage control
+     - Introduced lpClock
      - And several performance optimizations
 
 ## Contributing
