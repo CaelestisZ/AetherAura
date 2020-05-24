@@ -12,6 +12,13 @@
  - G530F
  - G530BT
  
+## How to install
+
+ - Boot into custom recovery
+ - Flash AetherLite ROM
+ - Flash AetherAura kernel device-specific build
+ - Reboot & Enjoy!
+
 ## Release History
 
  - Ascent
@@ -27,6 +34,12 @@
      - Introduced lpClock
      - Optimize KSM
      - And several performance optimizations
+ 
+## Downloads
+
+   __[AetherLite ROM](http://tiny.cc/aetherlite "AetherLite ROM")__
+   
+   __[AetherAura Kernel](https://github.com/CaelestisZ/AetherAura/releases "AetherAura Kernel")__
 
 ## Contributing
 
