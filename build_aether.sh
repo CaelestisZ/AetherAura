@@ -7,7 +7,7 @@
 #     / ___| |___|   / |  | |__| |\ \          
 #    /_/   |______\_/|_/  /_____\| \_\         
 #
-#        Aether Kernel Build Script 
+#      AetherAura Kernel Build Script 
 #         Coded by CaelestisZ @2020
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -42,7 +42,7 @@ BUILD_ZIMAGE()
 	echo " "
 	export ARCH=arm
 	export CROSS_COMPILE=$AE_TOOLCHAIN
-	export LOCALVERSION=-Aether_Aura-$AE_VERSION-$AE_VARIANT-$AE_DATE
+	export LOCALVERSION=-AetherAura-$AE_VERSION-$AE_VARIANT-$AE_DATE
 	mkdir output
 	make -C $AE_DIR -j5 O=output aether_msm8916_defconfig VARIANT_DEFCONFIG=$AE_DEFCON SELINUX_DEFCONFIG=aether_selinux_defconfig
 	make -C $AE_DIR -j5 O=output
@@ -90,15 +90,15 @@ PACK_ZIP()
 }
 # Main Menu
 clear
-echo "                 _        _                   "
-echo "         _______| |____  / |_________         "
-echo "        / |  ____  __/|  |  ________/         "
-echo "       / /| |__ | | | |__| |__| |_| |         "
-echo "      / /_|  __|| |_|  __   __|    _/         "
-echo "     / ___| |___|   / |  | |__| |\ \          "
-echo "    /_/   |______\_/|_/  /_____\| \_\         "
+echo "                  _        _                  "
+echo "          _______| |____  / |_________        "
+echo "         / |  ____  __/|  |  ________/        "
+echo "        / /| |__ | | | |__| |__| |_| |        "
+echo "       / /_|  __|| |_|  __   __|    _/        "
+echo "      / ___| |___|   / |  | |__| |\ \         "
+echo "     /_/   |______\_/|_/  /_____\| \_\        "
 echo "                                              "
-echo "    AetherKernel $AE_VERSION Build Script     "
+echo "     AetherAura $AE_VERSION Build Script      "
 echo "             Coded by CaelestisZ              "
 echo "                                              "
 PS3='Please select your option (1-5): '
