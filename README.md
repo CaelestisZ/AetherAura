@@ -1,6 +1,6 @@
 # AetherAura
 
-![AetherAura Logo](/info/logo.png)
+![AetherAura Logo](/info/aetheraura.png)
 
 > SE 7.1.1 kernel | FortunaX | Base: J510FN
 
@@ -14,14 +14,16 @@
  
 ## How to install
 
- - Boot into custom recovery
- - Flash AetherLite ROM
- - Flash AetherAura kernel device-specific build
+ - Boot into custom recovery.
+ - Flash AetherLite ROM and then the fixes. (if any)
+ - _Flash the latest release for a better experience!_
+ - _AetherAura kernel releases start with letters from A-Z, 'Z' being the latest release_
+ - Flash AetherAura kernel device-specific build.
  - Reboot & Enjoy!
 
 ## Release History
 
- - Ascent
+ - __Ascent__
      - Selective fortuna drivers updated
      - Reduced CPU average load
      - Enabled ARCH_POWER
@@ -34,17 +36,23 @@
      - Introduced lpClock
      - Optimize KSM
      - And several performance optimizations
+     
+ - __BlueFlare__
+     - Undervolt for better compatibility
+     - Implemented fast idling of CPU
+     - Implemented INTELLI_THERMAL driver
+     - Tune task-scheduler for power savings
+     - Implemented USB fast charge
+     - Decrease swappiness to 20
+     - TCP_Westwood: Tune-up
+     - Fixed headphone buttons
+     - And several optimizations to GPU
  
 ## Downloads
 
    __[AetherLite ROM](http://tiny.cc/aetherlite "AetherLite ROM")__
    
+   __[Temporary SecureStorage fix](http://tiny.cc/securestoragefix "Temporary SecureStorage fix")__
+   
    __[AetherAura Kernel](https://github.com/CaelestisZ/AetherAura/releases "AetherAura Kernel")__
-
-## Contributing
-
-1. Fork it (<https://github.com/CaelestisZ/AetherAura>)
-2. Create your feature branch (`git checkout -b feature/fooBar`)
-3. Commit your changes (`git commit -am 'Add some fooBar'`)
-4. Push to the branch (`git push origin feature/fooBar`)
-5. Create a new Pull Request
+    
