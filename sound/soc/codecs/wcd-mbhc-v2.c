@@ -2164,7 +2164,6 @@ int wcd_mbhc_set_keycode(struct wcd_mbhc *mbhc)
 				return result;
 			}
         ret = snd_jack_set_key(mbhc->button_jack.jack,
-							btn_key_code[i]);
 				       SND_JACK_BTN_0,
 				       KEY_MEDIA);
 		ret = snd_jack_set_key(mbhc->button_jack.jack,
