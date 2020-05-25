@@ -398,12 +398,12 @@ static int cpufreq_limit_notifier_policy(struct notifier_block *nb,
 		policy->user_policy.min, policy->user_policy.max,
 		policy->min, policy->max);
 #endif
-/*
+
 	if (policy->user_policy.min > min)
 		min = policy->user_policy.min;
 	if (policy->user_policy.max && policy->user_policy.max < max)
 		max = policy->user_policy.max;
-*/
+
 
 	mutex_unlock(&cpufreq_limit_lock);
 
