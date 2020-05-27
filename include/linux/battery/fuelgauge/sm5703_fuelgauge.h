@@ -24,13 +24,15 @@
 
 #define FG_DRIVER_VER "0.0.0.1"
 
-
+#if defined(CONFIG_BATTERY_AGE_FORECAST)
+#define ENABLE_BATT_LONG_LIFE 1
+#endif
 
 struct battery_data_t {
 	const int battery_type; /* 4200 or 4350 or 4400*/
-    const int battery_table[3][16];
-    const int rce_value[3];
-    const int dtcd_value;
+	const int battery_table[3][16];
+	const int rce_value[3];
+	const int dtcd_value;
 	const int rs_value[4];
 	const int vit_period;
 	const int mix_value[2];
@@ -67,30 +69,51 @@ struct sec_fg_info {
 
 	struct mutex io_lock;
 	struct device *dev;
-	int32_t temperature;; /* 0.1 deg C*/
+	int32_t temperature; /* 0.1 deg C*/
+	int32_t temp_fg; /* 0.1 deg C*/
 	/* register programming */
 	int reg_addr;
 	u8 reg_data[2];
 
-    int battery_table[3][16];
-    int rce_value[3];
-    int dtcd_value;
-    int rs_value[4]; /*rs mix_factor max min*/
-    int vit_period;
-    int mix_value[2]; /*mix_rate init_blank*/
+	int battery_table[3][16];
+#ifdef ENABLE_BATT_LONG_LIFE
+#ifdef CONFIG_BATTERY_AGE_FORECAST_DETACHABLE
+	int v_max_table[3];
+	int q_max_table[3];
+#else
+	int v_max_table[5];
+	int q_max_table[5];
+#endif
+	int v_max_now;
+	int q_max_now;
+#endif
+	int rce_value[3];
+	int dtcd_value;
+	int rs_value[4]; /*rs mix_factor max min*/
+	int vit_period;
+	int mix_value[2]; /*mix_rate init_blank*/
 
-    int enable_topoff_soc;
-    int topoff_soc;
+	int enable_topoff_soc;
+	int topoff_soc;
 
-    int volt_cal;
-    int curr_cal;
+	int volt_cal;
+	int curr_cal;
 
-    int temp_std;
-    int temp_offset;
-    int temp_offset_cal;
-    int charge_offset_cal;
+	int temp_std;
+	int temp_offset;
+	int temp_offset_cal;
+	int charge_offset_cal;
+	int en_high_temp_cal;
+	int high_temp_cal_denom;
+	int high_temp_p_cal_fact;
+	int high_temp_n_cal_fact;
+	int en_low_temp_cal;
+	int low_temp_cal_denom;
+	int low_temp_p_cal_fact;
+	int low_temp_n_cal_fact;
 
-    int battery_type; /* 4200 or 4350 or 4400*/
+	int battery_type; /* 4200 or 4350 or 4400*/
+	int data_ver;
 	uint32_t soc_alert_flag : 1;  /* 0 : nu-occur, 1: occur */
 	uint32_t volt_alert_flag : 1; /* 0 : nu-occur, 1: occur */
 	uint32_t flag_full_charge : 1; /* 0 : no , 1 : yes*/
@@ -99,6 +122,17 @@ struct sec_fg_info {
 	int32_t irq_ctrl;
 
 	uint32_t is_FG_initialised;
+	int iocv_error_count;
+
+	int n_tem_poff;
+	int n_tem_poff_offset;
+	int l_tem_poff;
+	int l_tem_poff_offset;
+
+	/* previous battery voltage current*/
+	int p_batt_voltage;
+	int p_batt_current;
+	int min_charge_curr;
 };
 
 struct sec_fuelgauge_info {
@@ -117,10 +151,15 @@ struct sec_fuelgauge_info {
 	struct sec_fg_info	info;
 
 	bool is_fuel_alerted;
+	bool volt_alert_flag;
 	struct wake_lock fuel_alert_wake_lock;
 
 	unsigned int capacity_old;	/* only for atomic calculation */
 	unsigned int capacity_max;	/* only for dynamic calculation */
+
+#if defined(CONFIG_BATTERY_AGE_FORECAST)
+	unsigned int chg_float_voltage; /* BATTERY_AGE_FORECAST */
+#endif
 
 	bool initial_update_of_soc;
 	struct mutex fg_lock;
@@ -163,7 +202,7 @@ ssize_t sec_fg_store_attrs(struct device *dev,
 
 
 #ifdef CONFIG_OF
-extern void board_fuelgauge_init(struct sec_fuelgauge_info *fuelgauge);
+extern void board_fuelgauge_init(void *fuelgauge);
 extern bool sec_bat_check_jig_status(void);
 #endif
 
