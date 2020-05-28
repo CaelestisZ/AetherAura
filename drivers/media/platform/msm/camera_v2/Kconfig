@@ -152,6 +152,14 @@ config IMX132
 		snapshot config = 1920 x 1080 at 30 fps,
 		Video HDR support.
 
+config IMX219
+	bool "Sensor imx219 (Sony 8MP)"
+	depends on MSMB_CAMERA
+	---help---
+		Support for IMX219 sensor driver.
+		This is a Sony 8MP Bayer Sensor with autofocus.
+		Say Y if the platform uses IMX219 sensor.
+
 config SR352
         bool "Sensor for front camera"
         depends on MSMB_CAMERA
