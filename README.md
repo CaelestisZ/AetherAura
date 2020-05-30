@@ -60,7 +60,7 @@
  
 ## Downloads
 
-   __[AetherLite ROM](http://tiny.cc/aetherlite.r03 "AetherLite ROM")__
+   __[AetherLite ROM](http://tiny.cc/aetherlite_r03 "AetherLite ROM")__
    
    __[AetherAura Kernel](https://github.com/CaelestisZ/AetherAura/releases "AetherAura Kernel")__
     
