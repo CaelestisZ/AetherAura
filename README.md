@@ -47,12 +47,20 @@
      - TCP_Westwood: Tune-up
      - Fixed headphone buttons
      - And several optimizations to GPU
+     
+  - __ClangorousSoulblaze__
+     - Kernel upstream: Linux 3.10.55
+     - Implemented a simpler MSM_THERMAL monitor
+     - Implemented Intelli-plug hotplug driver
+     - Implemented Faux sound control
+     - Sensors: updated drivers
+     - Radio: fully functional
+     - RIL: updated drivers
+     - Fixed logcat issues
  
 ## Downloads
 
-   __[AetherLite ROM](http://tiny.cc/aetherlite "AetherLite ROM")__
-   
-   __[Temporary SecureStorage fix](http://tiny.cc/securestoragefix "Temporary SecureStorage fix")__
+   __[AetherLite ROM](http://tiny.cc/aetherlite.r03 "AetherLite ROM")__
    
    __[AetherAura Kernel](https://github.com/CaelestisZ/AetherAura/releases "AetherAura Kernel")__
     

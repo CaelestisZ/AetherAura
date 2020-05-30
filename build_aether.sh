@@ -24,7 +24,7 @@
 #
 clear
 # Init Fields
-AE_VERSION=BlueFlare
+AE_VERSION=ClangorousSoulblaze
 AE_DATE=$(date +%Y%m%d)
 AE_TOOLCHAIN=/home/caelestisz/Toolchains/bin/arm-eabi-
 AE_DIR=$(pwd)
