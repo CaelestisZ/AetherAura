@@ -57,6 +57,13 @@
      - Radio: fully functional
      - RIL: updated drivers
      - Fixed logcat issues
+     
+  - __DracoMeteor__
+     - Implemented LCD notify
+     - Implemented Dynamic fsync and async
+     - Implemented Kcal color control
+     - Enable adaptive LMK
+     - Disable CRC by default
  
 ## Downloads
 
