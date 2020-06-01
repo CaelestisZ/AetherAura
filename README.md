@@ -69,7 +69,7 @@
 
    __[AetherLite ROM](http://tiny.cc/aetherlite_r03 "AetherLite ROM")__
    
-   __[AetherLite sensor blobs](http://tiny.cc/aether_sensor_blobs "AetherLite sensor blobs")__
+   __[AetherLite camera, sensor blobs](http://tiny.cc/aether_camera_sensor_blobs "AetherLite camera, sensor blobs")__
    
    __[AetherAura Kernel](https://github.com/CaelestisZ/AetherAura/releases "AetherAura Kernel")__
     
