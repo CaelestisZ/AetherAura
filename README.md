@@ -12,15 +12,6 @@
  - G530F
  - G530BT
  
-## How to install
-
- - Boot into custom recovery.
- - Flash AetherLite ROM and then the fixes. (if any)
- - _Flash the latest release for a better experience!_
- - _AetherAura kernel releases start with letters from A-Z, 'Z' being the latest release_
- - Flash AetherAura kernel device-specific build.
- - Reboot & Enjoy!
-
 ## Release History
 
  - __Ascent__
@@ -64,12 +55,3 @@
      - Implemented Kcal color control
      - Enable adaptive LMK
      - Disable CRC by default
- 
-## Downloads
-
-   __[AetherLite ROM](http://tiny.cc/aetherlite_r03 "AetherLite ROM")__
-   
-   __[AetherLite sensor blobs](http://tiny.cc/aether_sensor_blobs "AetherLite sensor blobs")__
-   
-   __[AetherAura Kernel](https://github.com/CaelestisZ/AetherAura/releases "AetherAura Kernel")__
-    
