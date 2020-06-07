@@ -26,7 +26,7 @@ clear
 # Init Fields
 AE_VERSION=DracoMeteor
 AE_DATE=$(date +%Y%m%d)
-AE_TOOLCHAIN=/home/caelestisz/Toolchains/bin/arm-eabi-
+AE_TOOLCHAIN=/home/caelestisz/AndroidBuilds/Toolchains/linaro-4.8/bin/arm-eabi-
 AE_DIR=$(pwd)
 # Init Methods
 CLEAN_SOURCE()
@@ -47,7 +47,7 @@ BUILD_ZIMAGE()
 	make -C $AE_DIR -j5 O=output aether_msm8916_defconfig VARIANT_DEFCONFIG=$AE_DEFCON SELINUX_DEFCONFIG=aether_selinux_defconfig
 	make -C $AE_DIR -j5 O=output
 	cp $AE_DIR/output/arch/arm/boot/zImage $AE_DIR/AETHER/zImage
-	mkdir AETHER/modules/pronto
+	mkdir $AE_DIR/AETHER/modules/pronto
 	cp $AE_DIR/output/arch/arm/oprofile/oprofile.ko $AE_DIR/AETHER/modules/oprofile.ko
 	cp $AE_DIR/output/block/test-iosched.ko $AE_DIR/AETHER/modules/test-iosched.ko
 	cp $AE_DIR/output/crypto/ansi_cprng.ko $AE_DIR/AETHER/modules/ansi_cprng.ko
