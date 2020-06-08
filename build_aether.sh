@@ -45,20 +45,19 @@ BUILD_ZIMAGE()
 	export LOCALVERSION=-AetherAura-$AE_VERSION-$AE_VARIANT-$AE_DATE
 	mkdir output
 	make -C $AE_DIR -j5 O=output aether_msm8916_defconfig VARIANT_DEFCONFIG=$AE_DEFCON SELINUX_DEFCONFIG=aether_selinux_defconfig
-	make -C $AE_DIR -j5 O=output
-	cp $AE_DIR/output/arch/arm/boot/zImage $AE_DIR/AETHER/zImage
-	mkdir $AE_DIR/AETHER/modules/pronto
-	cp $AE_DIR/output/arch/arm/oprofile/oprofile.ko $AE_DIR/AETHER/modules/oprofile.ko
-	cp $AE_DIR/output/block/test-iosched.ko $AE_DIR/AETHER/modules/test-iosched.ko
-	cp $AE_DIR/output/crypto/ansi_cprng.ko $AE_DIR/AETHER/modules/ansi_cprng.ko
-	cp $AE_DIR/output/drivers/gator/gator.ko $AE_DIR/AETHER/modules/gator.ko
-	cp $AE_DIR/output/drivers/input/evbug.ko $AE_DIR/AETHER/modules/evbug.ko
-	cp $AE_DIR/output/drivers/mmc/card/mmc_block_test.ko $AE_DIR/AETHER/modules/mmc_block_test.ko
-	cp $AE_DIR/output/drivers/mmc/card/mmc_test.ko $AE_DIR/AETHER/modules/mmc_test.ko
-	cp $AE_DIR/output/drivers/spi/spidev.ko $AE_DIR/AETHER/modules/spidev.ko
-	cp $AE_DIR/output/drivers/staging/prima/wlan.ko $AE_DIR/AETHER/modules/pronto/pronto_wlan.ko
-	cp $AE_DIR/output/net/ipv4/tcp_htcp.ko $AE_DIR/AETHER/modules/tcp_htcp.ko
-	cp $AE_DIR/output/net/ipv4/tcp_westwood.ko $AE_DIR/AETHER/modules/tcp_westwood.ko
+	make -C $AE_DIR -j5 O=output	
+	mkdir $AE_DIR/AETHER/build/system/lib/modules/pronto
+	cp $AE_DIR/output/drivers/staging/prima/wlan.ko $AE_DIR/AETHER/build/system/lib/modules/pronto/pronto_wlan.ko
+	cp $AE_DIR/output/arch/arm/oprofile/oprofile.ko $AE_DIR/AETHER/build/system/lib/modules/oprofile.ko
+	cp $AE_DIR/output/block/test-iosched.ko $AE_DIR/AETHER/build/system/lib/modules/test-iosched.ko
+	cp $AE_DIR/output/crypto/ansi_cprng.ko $AE_DIR/AETHER/build/system/lib/modules/ansi_cprng.ko
+	cp $AE_DIR/output/drivers/gator/gator.ko $AE_DIR/AETHER/build/system/lib/modules/gator.ko
+	cp $AE_DIR/output/drivers/input/evbug.ko $AE_DIR/AETHER/build/system/lib/modules/evbug.ko
+	cp $AE_DIR/output/drivers/mmc/card/mmc_block_test.ko $AE_DIR/AETHER/build/system/lib/modules/mmc_block_test.ko
+	cp $AE_DIR/output/drivers/mmc/card/mmc_test.ko $AE_DIR/AETHER/build/system/lib/modules/mmc_test.ko
+	cp $AE_DIR/output/drivers/spi/spidev.ko $AE_DIR/AETHER/build/system/lib/modules/spidev.ko
+	cp $AE_DIR/output/net/ipv4/tcp_htcp.ko $AE_DIR/AETHER/build/system/lib/modules/tcp_htcp.ko
+	cp $AE_DIR/output/net/ipv4/tcp_westwood.ko $AE_DIR/AETHER/build/system/lib/modules/tcp_westwood.ko
 	echo " "
 }
 BUILD_DTB()
@@ -69,19 +68,34 @@ BUILD_DTB()
 	$AE_DIR/tools/dtbTool -o $AE_DIR/AETHER/dtb.img $AE_DIR/output/arch/arm/boot/dts/
 	echo " "
 }
+PACK_IMG()
+{
+	echo "----------------------------------------------"
+	echo "Packing boot.img for $AE_VARIANT..."
+	echo " "
+	mkdir -p $AE_DIR/AETHER/tools/aik/ramdisk
+	mkdir -p $AE_DIR/AETHER/tools/aik/split_img
+	cp -rf $AE_DIR/AETHER/ramdisk/common/ramdisk/* $AE_DIR/AETHER/tools/aik/ramdisk
+	cp -rf $AE_DIR/AETHER/ramdisk/common/split_img/* $AE_DIR/AETHER/tools/aik/split_img
+	mv $AE_DIR/output/arch/arm/boot/zImage $AE_DIR/AETHER/tools/aik/split_img/boot.img-zImage
+	mv $AE_DIR/AETHER/dtb.img $AE_DIR/AETHER/tools/aik/split_img/boot.img-dtb
+	$AE_DIR/AETHER/tools/aik/repackimg.sh
+	mv $AE_DIR/AETHER/tools/aik/image-new.img $AE_DIR/AETHER/build/boot.img
+	$AE_DIR/AETHER/tools/aik/cleanup.sh
+	echo " "
+}
 PACK_ZIP()
 {
 	echo "----------------------------------------------"
 	echo "Packing flashable zip for $AE_VARIANT..."
 	echo " "
-	cd AETHER
-	mv dtb.img dtb
+	cd AETHER/build
 	zip -r AetherAura_$AE_VERSION-$AE_VARIANT-$AE_DATE.zip *
-	rm -r modules/*
-	rm -r zImage
-	rm -r dtb
+	rm -r boot.img
+	rm -r system/lib/modules/*
 	cd ..
-	mv AETHER/AetherAura_$AE_VERSION-$AE_VARIANT-$AE_DATE.zip final/AetherAura_$AE_VERSION-$AE_VARIANT-$AE_DATE.zip
+	cd ..
+	mv AETHER/build/AetherAura_$AE_VERSION-$AE_VARIANT-$AE_DATE.zip AETHER/final/AetherAura_$AE_VERSION-$AE_VARIANT-$AE_DATE.zip
 	echo " "
 	echo "Final builds at /final"
 	echo "----------------------------------------------"
@@ -120,6 +134,7 @@ do
             AE_DEFCON=aether_msm8916_fortuna3g_defconfig
             BUILD_ZIMAGE
             BUILD_DTB
+            PACK_IMG
             PACK_ZIP
             read -n1 -r key
             break
@@ -139,6 +154,7 @@ do
             AE_DEFCON=aether_msm8916_fortuna3gdtv_defconfig
             BUILD_ZIMAGE
             BUILD_DTB
+            PACK_IMG
             PACK_ZIP
             read -n1 -r key
             break
@@ -158,6 +174,7 @@ do
             AE_DEFCON=aether_msm8916_fortunave3g_defconfig
             BUILD_ZIMAGE
             BUILD_DTB
+            PACK_IMG
             PACK_ZIP
             read -n1 -r key
             break
@@ -177,6 +194,7 @@ do
             AE_DEFCON=aether_msm8916_fortunafz_defconfig
             BUILD_ZIMAGE
             BUILD_DTB
+            PACK_IMG
             PACK_ZIP
             read -n1 -r key
             break
