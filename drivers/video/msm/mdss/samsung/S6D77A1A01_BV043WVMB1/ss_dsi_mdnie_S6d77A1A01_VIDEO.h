@@ -910,9 +910,11 @@ static struct dsi_cmd_desc *mdnie_tune_value_dsi0[MAX_APP_MODE][MAX_MODE][MAX_OU
 			NATURAL_MODE
 			MOVIE_MODE
 			AUTO_MODE
+			READING_MODE
 		*/
 		// UI_APP
 		{
+			{DSI0_UI_MDNIE,	NULL},
 			{DSI0_UI_MDNIE,	NULL},
 			{DSI0_UI_MDNIE,	NULL},
 			{DSI0_UI_MDNIE,	NULL},
@@ -926,9 +928,11 @@ static struct dsi_cmd_desc *mdnie_tune_value_dsi0[MAX_APP_MODE][MAX_MODE][MAX_OU
 			{DSI0_VIDEO_MDNIE,	NULL},
 			{DSI0_VIDEO_MDNIE,	NULL},
 			{DSI0_VIDEO_MDNIE,	NULL},
+			{DSI0_VIDEO_MDNIE,	NULL},
 		},
 		//VIDEO_WARM_APP
 		{
+			{DSI0_UI_MDNIE,	NULL},
 			{DSI0_UI_MDNIE,	NULL},
 			{DSI0_UI_MDNIE,	NULL},
 			{DSI0_UI_MDNIE,	NULL},
@@ -942,9 +946,11 @@ static struct dsi_cmd_desc *mdnie_tune_value_dsi0[MAX_APP_MODE][MAX_MODE][MAX_OU
 			{DSI0_UI_MDNIE,	NULL},
 			{DSI0_UI_MDNIE,	NULL},
 			{DSI0_UI_MDNIE,	NULL},
+			{DSI0_UI_MDNIE,	NULL},
 		},
 		// CAMERA_APP
 		{
+			{DSI0_CAMERA_MDNIE,	NULL},
 			{DSI0_CAMERA_MDNIE,	NULL},
 			{DSI0_CAMERA_MDNIE,	NULL},
 			{DSI0_CAMERA_MDNIE,	NULL},
@@ -958,9 +964,11 @@ static struct dsi_cmd_desc *mdnie_tune_value_dsi0[MAX_APP_MODE][MAX_MODE][MAX_OU
 			{DSI0_UI_MDNIE,	NULL},
 			{DSI0_UI_MDNIE,	NULL},
 			{DSI0_UI_MDNIE,	NULL},
+			{DSI0_UI_MDNIE,	NULL},
 		},
 		// GALLERY_APP
 		{
+			{DSI0_GALLERY_MDNIE,	NULL},
 			{DSI0_GALLERY_MDNIE,	NULL},
 			{DSI0_GALLERY_MDNIE,	NULL},
 			{DSI0_GALLERY_MDNIE,	NULL},
@@ -974,9 +982,11 @@ static struct dsi_cmd_desc *mdnie_tune_value_dsi0[MAX_APP_MODE][MAX_MODE][MAX_OU
 			{DSI0_UI_MDNIE,	NULL},
 			{DSI0_UI_MDNIE,	NULL},
 			{DSI0_UI_MDNIE,	NULL},
+			{DSI0_UI_MDNIE,	NULL},
 		},
 		// BROWSER_APP
 		{
+			{DSI0_UI_MDNIE,	NULL},
 			{DSI0_UI_MDNIE,	NULL},
 			{DSI0_UI_MDNIE,	NULL},
 			{DSI0_UI_MDNIE,	NULL},
@@ -990,9 +1000,11 @@ static struct dsi_cmd_desc *mdnie_tune_value_dsi0[MAX_APP_MODE][MAX_MODE][MAX_OU
 			{DSI0_UI_MDNIE,	NULL},
 			{DSI0_UI_MDNIE,	NULL},
 			{DSI0_UI_MDNIE,	NULL},
+			{DSI0_UI_MDNIE,	NULL},
 		},
 		// EMAIL_APP
 		{
+			{DSI0_UI_MDNIE,	NULL},
 			{DSI0_UI_MDNIE,	NULL},
 			{DSI0_UI_MDNIE,	NULL},
 			{DSI0_UI_MDNIE,	NULL},
