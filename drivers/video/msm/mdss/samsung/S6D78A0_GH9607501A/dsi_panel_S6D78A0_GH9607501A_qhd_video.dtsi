@@ -59,7 +59,7 @@
 		];
 		qcom,mdss-dsi-panel-type = "dsi_video_mode";
 		qcom,lcd-esd-det-gpio = <&msm_gpio 69 0>;
-		qcom,mdss-dsi-panel-framerate = <60>;
+		qcom,mdss-dsi-panel-framerate = <65>;
 		qcom,mdss-dsi-virtual-channel-id = <0>;
 		qcom,mdss-dsi-stream = <0>;
 		qcom,cont-splash-enabled;
